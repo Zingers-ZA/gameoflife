@@ -1,0 +1,25 @@
+<div class="toolbar">
+
+</div>
+
+<div class="settings-bar">
+
+  <button (click)='this.running = true; loop();'>Start</button>
+  <button (click)='this.running = false;'>Stop</button>
+  <button (click)='clear()'>Clear</button>
+
+</div>
+
+<div class="game-container">
+
+  <table class='center'>
+    <tr *ngFor="let row of this.matrix; let i=index">
+      <td *ngFor="let column of this.matrix[i]; let j=index" class="cell" [ngClass]="{'alive': this.matrix[i][j]}" 
+        (click)="this.matrix[i][j] = !this.matrix[i][j]; setFurthest(i, j);">
+        
+      </td>
+    </tr>
+  </table>
+</div>
+
+
