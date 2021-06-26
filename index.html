@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameOfLife</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    
+    <div class="settings-bar soft-white">
+
+        <div class="settings-bar-buttons">
+            <a class="btn" onclick='start()'>Start</a>
+            <a class="btn" onclick='stop()'>Stop</a>
+            <a class="btn" onclick='clearAll()'>Clear</a>
+        </div>
+
+        <div class="settings-bar-other">
+            <div class="slider-container">
+                <span id="rangeValueSpeed" class='rangeValue'>Speed: 75%</span>
+                <input class="range" type="range" name="" value="75" min="1" max="100" onChange="rangeSlideSpeed(this.value)" onmousemove="rangeSlideSpeed(this.value)"></input>
+            </div>
+
+            <div class="slider-container">
+                <span id="rangeValueSize" class='rangeValue'>Block Size: 1</span>
+                <input class="range" type="range" name="" value="1" min="1" max="10" onChange="rangeSlideSize(this.value)" onmousemove="rangeSlideSize(this.value)"></input>
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+    
+       <table id='tableMain' class='table'>
+
+      </table>
+
+
+    </div>
+
+
+    
+</body>
+</html>
