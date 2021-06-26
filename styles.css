@@ -1,9 +1,10 @@
 
 body {
     margin:0px;
-    background: linear-gradient(-45deg, #58291b, #420d21, #14245a, #063d30);
-	background-size: 1000% 1000%;
-	animation: gradient 30s ease infinite;
+    background: linear-gradient(-45deg, #1b0d08, #420d21, #14245a);
+    /* background: linear-gradient(-45deg, #58291b, #420d21, #14245a, #063d30); */
+	background-size: 100% 100%;
+	/* animation: gradient 30s ease infinite; */
     font-family: Arial, Helvetica;
 }
 

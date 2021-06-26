@@ -2,17 +2,21 @@ var n = 100;
 var matrix;
 var speed;
 var running = false;
+var startState;
 var furthest = {
     row: 0,
     col: 0
 }
-
 
 $(document).ready(function(){
     window.matrix = new Array(n).fill(false)
         .map(() => new Array(Math.ceil(n)).fill(false));
     generateTable();
 })
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function rangeSlideSpeed(value) {
     document.getElementById('rangeValueSpeed').innerHTML = "Speed: " + value + "%";
@@ -24,14 +28,34 @@ function rangeSlideSize(value) {
     document.getElementById("tableMain").style.transform = 'scale('+ value +')'
 }
 
+function saveStartState(){
+  window.startState = []
+
+  for (var i = 0; i < window.matrix.length; i++){
+    for (var j = 0; j < window.matrix[i].length; j++){
+      if (window.matrix[i][j]){
+        window.startState.push({row: i, col: j});
+      }
+    }
+  }
+}
 
 function start(){
+    saveStartState();
     running = true;
     loop();
 }
 
 function stop(){
     running = false;
+}
+
+function reset(){
+  clearAll();
+  for (let block of window.startState){
+    window.matrix[block.row][block.col] = true;
+    document.getElementById(block.row + '_'+ block.col).classList.add("alive");
+  }
 }
 
 function clearAll(){
@@ -110,9 +134,7 @@ function getLiveNeighbors(row, column) {
 }
 
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+
 
 async function loop(){
 
